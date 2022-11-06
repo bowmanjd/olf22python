@@ -19,22 +19,93 @@ I quickly learned that while building and configuring systems is certainly a lot
 - hard to remember
 
 
-This need for efficiency and/or repeatability is common, and many tools have arisen over the decades to fill the need.
+This need for efficiency and/or repeatability is common, and many tools for automation that have arisen over the decades to fill these needs.
+
+By "automation" I simply mean delegating some work to robots that you train. That doesn't necessarily mean a full "set it and forget it" automation. For instance, if you take the videos that your phone makes, and regularly convert these to a different format and resolution using ffmpeg, that is a task ripe for simple manually triggered automation. (Other examples)?
+
+Two tools/classes of tools for system automation
 
 - Bash
 - Ansible
 
+There are certainly more, but these are two common ones. Ansible and its similar counterparts, such as Chef, Puppet, and Saltstack, are for configuration management of a variety of systems, such as Linux servers. These tools use a domain-specific language that is easy to read, alter, and commit to version control. Bash scripts offer far more flexibility, but require a lot of sometimes hard-to-acquire knowledge about not only Bash, but the tools you will need to use along with Bash, such as grep, cut, tail, head, cat, sed, maybe even awk.
 
-## Automation scenarios
+Both can automate tedious tasks. Ansible is by far more readable and shareable. A Bash script has less guardrails, and is useful for more than just configuration management.
 
-Provisioning, configuration, management/orchestration
+I think Python occupies a middle place between these two. It can be used to do anything Ansible does (in fact, both Ansible and Saltstack are written in Python) and it can do anything Bash does, but unlike either of these, it is a general-purpose programming language with a multi-faceted ecosystem.
+
+When your bash scripts:
+- require a lot of complicated string, array, or data processing 
+- require tools that are unavailable or inconsistent on the target machine (and Python is available)
+- are becoming large, complicated, or difficult to read
+
+When Ansible is:
+- too heavy of a framework
+- too slow
+- requiring a lot of extra shell scripting to process outputs
+
+Keep in mind, Python can work well with Bash, and with Ansible and other tools.
+
+An [informative debate about the merits of Bash vs. Python on Stackoverflow](https://stackoverflow.com/questions/2424921/python-vs-bash-in-which-kind-of-tasks-each-one-outruns-the-other-performance-w)
+
 
 ## Why Python?
 
-With Python, you may already have all you need to configure
-and manage a variety of systems, with speed, precision, and very little
-excess baggage. In this talk, we consider when and how to use Python for
-shell scripting and configuration management, whether the target is an
-entire datacenter or just your personal laptop. We will explore command
-execution, file system manipulation, data wrangling, and downloading
+Many scripting languages exist that fill this space: Perl is the old standby, Ruby and even Javascript can be used. Lua is probably worth exploring!
+
+If you find something that works as well as Python, excellent!
+
+If you are weighing options, a couple quotes to consider:
+
+- "The Python space is beautiful, and great, and big" -- Lorena Mesa, Engineer at GitHub, former chair of PSF
+- "I came for the language, I stay for the community." - Brett Cannon, Dev lead on the Python extension for Visual Studio Code
+- "batteries included" philosophy of Python. A robust standard library.
+
+Cross-platform: when the scripts you write might end up being used by different operating systems, Python might be a good fit
+
+## Getting started with Python
+
+Automate the boring stuff
+
+Django Girls tutorial
+
+The python docs
+
+Awesome python list?
+
+## Lightning intro to Python
+
+- Download/install
+- online, docker, or virtualenv
+- The REPL
+- Editors (vscode)
+- Functions, arguments
+- types
+- dict
+- loops
+- conditions
+
+## virtualenv
+
+- `python -m venv .venv`
+- `. .venv/bin/activate`
+
+## Command execution
+
+- subprocess.run()
+- plumbum
+
+## File system manipulation
+
+- pathlib.Path()
+
+## Processing command line arguments
+
+- sys.argv
+- argparse
+- plumbum
+- click
+- typer
+
+## , data wrangling, and downloading
 data from web APIs.
