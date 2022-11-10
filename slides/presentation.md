@@ -69,6 +69,18 @@ Thus the desire for automation! To improve:
 - Repeatability
 - Reliability
 
+All of these are quite desirable with Linux system administration, configuration, whether you are working with an Ubuntu laptop, an Open-WRT router, a datacenter with hundreds of RHEL VMs, or your Archlinux-based homelab.
+
+(Automation is also helpful and feasible on the BSDs, Mac, and, yes, even Windows.)
+
+---
+
+Different tools for system automation
+
+- Bash <span class="fragment" data-fragment-index="2">(or ash/dash, zsh, fish, Elvish, xonsh, Nushell...)</span>
+- Python <!-- .element: class="fragment fade-left" data-fragment-index="3" style="color: #0c9"-->
+- Ansible <span class="fragment" data-fragment-index="1">(or Salt, Chef, Puppet...)</span>
+
 ---
 
 ## Slide 2
