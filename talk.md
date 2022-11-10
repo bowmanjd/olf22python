@@ -116,11 +116,10 @@ Awesome python list?
 ## CSV
 
 
-
 ## Web APIs
 
 
-
-
-
-data from web APIs.
+[boring]: https://automatetheboringstuff.com/
+[libvirt]: https://www.libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/
+[shlex]: https://docs.python.org/3/library/shlex.html
+[subprocess]: https://docs.python.org/3/library/subprocess.htm
