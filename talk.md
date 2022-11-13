@@ -15,11 +15,12 @@ And continuing to develop and build on my own, building and tearing down my mach
 
 I quickly learned that while building and configuring systems is certainly a lot of fun, there are a variety of tasks that are either:
 
-- tedious
+- taking too much time
 - hard to remember
+- prone to human error
 
 
-This need for efficiency and/or repeatability is common, and many tools for automation that have arisen over the decades to fill these needs.
+This need for efficiency, repeatability, and/or reliability is common, and many tools for automation that have arisen over the decades to fill these needs.
 
 By "automation" I simply mean delegating some work to robots that you train. That doesn't necessarily mean a full "set it and forget it" automation. For instance, if you take the videos that your phone makes, and regularly convert these to a different format and resolution using ffmpeg, that is a task ripe for simple manually triggered automation. (Other examples)?
 
