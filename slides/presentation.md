@@ -131,8 +131,6 @@ Brett Cannon, Dev lead on the Python extension for Visual Studio Code <!-- .elem
 Getting started with Python
 
 Lots of good documentation. Here are a few...
-- The python docs
-- Awesome python list?
 
 ---
 
@@ -328,7 +326,7 @@ def compare(a, b):
 
 Loops
 
-```python [1-10|3-4|6-7|9-10|1|1-10]
+```python [1-13|3-4|6-7|9-10|12-13|1|1-13]
 import os
 
 for variable in os.environ.keys():
@@ -352,15 +350,80 @@ command execution with `subprocess`
 
 ---
 
+`subprocess.run()` with text output capture
+
 ```python
 import subprocess
 
-subprocess.run(["ip", "addr"])
+result = subprocess.run(["ip", "addr"],
+                        capture_output=True,
+                        text=True)
+
+if result.returncode == 0 and result.stdout:
+	print(result.stdout)
 ```
 
 ---
 
+The same, but with shell mode
+
 ```python
+import subprocess
+
+result = subprocess.run("ip addr",
+                        capture_output=True,
+                        shell=True,
+                        text=True)
+
+if result.returncode == 0 and result.stdout:
+  print(result.stdout)
+```
+
+---
+
+A shortcut with `subprocess.check_output`
+
+```python
+import subprocess
+
+output = subprocess.check_output("ip addr",
+                                  shell=True,
+                                  text=True)
+
+print(output)
+
+```
+
+---
+
+A shortcut with `subprocess.check_call` if output capture is not needed
+
+```python
+import subprocess
+
+subprocess.check_call("ip addr", shell=True)
+```
+
+---
+
+Summary:
+- `subprocess.run` for anything and everything
+- `subprocess.check_output` for convenience, capturing output
+- `subprocess.check_call` if execution is all that is needed
+- `shell=True` parameter will pass the whole command as string to `sh` otherwise pass the command as a `["list", "of", "command", "and", "parameters"]`
+
+---
+
+```python
+import pathlib
+import shlex
+
+os_release_file = pathlib.Path("/etc/os-release")
+os_release = os_release_file.read_text()
+lexer = shlex.shlex(os_release, posix=True)
+lexer.whitespace_split = True
+os_info = dict(i.split('=') for i in lexer if "=" in i)
+print(os_info["PRETTY_NAME"])
 ```
 
 ---
