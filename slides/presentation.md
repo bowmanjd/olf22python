@@ -232,7 +232,7 @@ Python editors
 
 - [VSCode](https://code.visualstudio.com/)
 - [PyCharm](https://www.jetbrains.com/pycharm/)
-- Vim/Neovim, Emacs, Zed, Helix
+- Vim/Neovim, Emacs, Sublime Text, Helix, Zed...
 - For beginners: [Thonny](https://thonny.org/), [Mu](https://codewith.mu/)
 
 ---
@@ -279,7 +279,7 @@ greet(audience="Galaxy")
 
 Some types
 
-```python [1-8|1|2|3|4|5|6|7|8|1-8]
+```python [1-9|1|2|3|4|5|6|7|8|9|1-9]
 a_number = 12
 another_number = 7.1
 a_string = "Some text"
@@ -288,6 +288,7 @@ a_range = range(10)
 some_bytes = b"\x00\x01\x02\x03Hi"
 a_list = ["Some text", 14, another_number, "你好", 1]
 a_lonely_number = a_list[4]
+a_boolean = True
 ```
 
 ---
@@ -341,6 +342,30 @@ for num in range(10):
 for _ in range(10):
 	print("Doing this thing 10 times.")
 ```
+
+---
+
+Shell scripting in the standard library
+
+- [`subprocess`](https://docs.python.org/3/library/subprocess.html) for command execution
+- [`pathlib`](https://docs.python.org/3/library/pathlib.html) for filesystem reading/manipulation
+- [`shutil`](https://docs.python.org/3/library/shutil.html) for copying/deleting directories
+- [`shlex`](https://docs.python.org/3/library/shlex.html) for parsing arguments
+- [`re`](https://docs.python.org/3/library/re.html) for regular expressions
+- [`fnmatch`](https://docs.python.org/3/library/fnmatch.html) for shell-like file matching
+- [`argparse`](https://docs.python.org/3/library/argparse.html) for parsing command-line arguments
+- [`os`](https://docs.python.org/3/library/os.html) 
+- [`sys`](https://docs.python.org/3/library/sys.html)
+
+---
+
+Data wrangling in the standard library
+
+- [`csv`](https://docs.python.org/3/library/csv.html)
+- [`json`](https://docs.python.org/3/library/json.html)
+- [`xml.etree.ElementTree`](https://docs.python.org/3/library/xml.etree.elementtree.html)
+- [`sqlite`](https://docs.python.org/3/library/sqlite.html)
+- [`urllib.request`](https://docs.python.org/3/library/urllib.request.html) for HTTP calls
 
 ---
 
