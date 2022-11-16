@@ -435,7 +435,169 @@ Summary:
 - `subprocess.run` for anything and everything
 - `subprocess.check_output` for convenience, capturing output
 - `subprocess.check_call` if execution is all that is needed
-- `shell=True` parameter will pass the whole command as string to `sh` otherwise pass the command as a `["list", "of", "command", "and", "parameters"]`
+- `shell=True` parameter will pass the whole command as string to `sh`, and expand variables; otherwise pass the command as a `["list", "of", "command", "and", "parameters"]`
+
+---
+
+Have you tried [plumbum](https://plumbum.readthedocs.io)?
+
+```python
+from plumbum.cmd import ip
+
+ip('addr')
+```
+
+And *so* much more...
+
+---
+
+File reading, writing, and manipulation with
+
+`pathlib`
+
+---
+
+```python [1-11|1|3|4|9|10-11|1-11]
+from pathlib import Path
+
+filepath = Path("/etc/os-release")
+os_info = filepath.read_text()
+if "Fedora" in os_info:
+	print("I still remember Redhat 5.1")
+elif "Alpine" in os_info:
+  print("Compiled with love and musl")
+elif "archlinux" in os_info:
+  print("A wiki and the AUR; it "
+	      "doesn't get better than this!")
+```
+
+Notes:
+- importing into global namespace
+- the path object
+- the convenient read_text function
+- Note the `elif`
+- breaking up a long string
+
+---
+
+Reading line by line
+
+```python [1-7|4-7|5|1-7]
+from pathlib import Path
+
+filepath = Path("/etc/os-release")
+with filepath.open() as f:
+  for line in f:
+    if line.startswith("PRETTY_NAME"):
+      print(line.strip())
+```
+
+---
+
+Writing text to a file
+
+```python
+from pathlib import Path
+
+filepath = Path("/etc/motd")
+weather = "There will be temperatures today with a chance of weather."
+filepath.write_text(weather)
+```
+
+---
+
+Processing command-line arguments
+
+---
+
+Easy but inflexible with `sys.argv`
+
+Save the following to something like `motder.py`
+
+```python
+import sys
+from pathlib import Path
+
+def motder(text):
+  filepath = Path("/etc/motd")
+  filepath.write_text(text)
+
+if __name__ == "__main__":
+	motder(sys.argv[1])
+```
+
+Execute with:
+
+```terminal
+> sudo python3 motder.py "Good morning it is Friday!"
+```
+
+---
+
+Add a shebang and make it executable
+
+```python [1-10|1|1-10]
+#!/usr/bin/env python3
+import sys
+from pathlib import Path
+
+def motder(text):
+  filepath = Path("/etc/motd")
+  filepath.write_text(text)
+
+if __name__ == "__main__":
+	motder(sys.argv[1])
+```
+
+```terminal
+> chmod a+x motder.py
+> sudo ./motder.py "Good morning it is a lazy Friday!"
+```
+
+---
+
+A more flexible way: `argparse`
+
+```python
+#!/usr/bin/env python3
+import argparse
+from pathlib import Path
+
+def motder(text):
+  filepath = Path("/etc/motd")
+  filepath.write_text(text)
+
+if __name__ == "__main__":
+  parser = argparse.ArgumentParser()
+  parser.add_argument("message", help="The message of the day")
+  args = parser.parse_args()
+	motder(args.message)
+```
+
+Note:
+- builtin help
+- Try executing without an argument, or with `motder.py -h`
+
+---
+
+Some excellent third-party CLI libraries
+
+- [`click`](https://palletsprojects.com/p/click/)
+- [`typer`](https://typer.tiangolo.com/)
+- [`fire`](https://google.github.io/python-fire/)
+- [`plumbum`](https://plumbum.readthedocs.io/en/latest/cli.html#command-line-interface-cli)
+
+---
+
+Create truly glamorous TUIs
+
+- [`rich`](https://rich.readthedocs.io/)
+- [`textual`](https://textual.textualize.io/)
+
+---
+
+```python
+```
 
 ---
 
