@@ -596,7 +596,132 @@ Create truly glamorous TUIs
 
 ---
 
+Temporary files
+
 ```python
+import pathlib
+import shutil
+import subprocess
+import tempfile
+
+tempdir = pathlib.Path(tempfile.mkdtemp())
+temp_motd = tempdir / "motd"
+temp_motd.write_text("Welcome, user!")
+motd = pathlib.Path("/etc/motd")
+subprocess.check_call(["sudo", "cp", temp_motd, motd])
+shutil.rmtree(tempdir, ignore_errors=True)
+```
+
+---
+
+Data
+
+---
+
+Writing JSON
+
+```python[1-5|1|3|4|1-5]
+import json
+
+data = {"name": "OLF conference", "age": 20}
+json_data = json.dumps(data, indent=4)
+print(json_data)
+```
+
+Notes:
+- line 3 is not JSON, even though it looks like it!
+- indent is entirely optional
+
+---
+
+Reading JSON
+
+```python[1-6|6|1-6]
+import json
+from pathlib import Path
+
+filepath = Path("/etc/docker/daemon.conf")
+filetext = filepath.read_text()
+dockerd_conf = json.loads(filetext)
+```
+
+---
+
+Reading CSV
+
+---
+
+`sample.csv`
+
+```text
+Name,Age
+Michael Palin, 79
+John Cleese,83
+```
+
+---
+
+```python
+import csv
+from pathlib import Path
+
+inpath = Path("sample.csv")
+
+with inpath.open(newline="", encoding="utf-8") as f:
+    reader = csv.reader(f)
+    next(reader) # Skip the header
+    for row in reader:
+        name = row[0]
+        age = row[1]
+        print(f"{name} is {age} years old.")
+```
+
+---
+
+```python
+import csv
+from pathlib import Path
+
+inpath = Path("sample.csv")
+
+with inpath.open(newline="", encoding="utf-8") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        name = row["Name"]
+        age = row["Age"]
+        print(f"{name} is {age} years old.")
+```
+
+Notes:
+- using dict reader allows dynamically assigned columns
+
+---
+
+Writing CSV
+
+```python
+import csv
+from pathlib import Path
+
+outpath = Path("output.csv")
+
+with outpath.open("w", newline="", encoding="utf-8-sig") as outfile:
+  writer = csv.writer(outfile)
+  new_row = {"First": "Jane", "Last": "Smith"}
+  writer.writerow(["Name","Age"])
+  writer.writerow(["John Cleese",83])
+```
+
+---
+
+```python
+from urllib.request import urlopen
+
+# Avoid unsanitized user inputs, because:
+# url = "file:///etc/passwd"
+url = "https://wttr.in/Columbus,OH?A1nF"
+with urlopen(url) as response:
+  print(response.read().decode())
 ```
 
 ---
