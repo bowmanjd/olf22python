@@ -439,6 +439,22 @@ Summary:
 
 ---
 
+SSH
+
+with [Paramiko](https://www.paramiko.org/) 
+
+---
+
+```python
+import paramiko
+
+client = paramiko.client.SSHClient()
+client.load_system_host_keys()
+client.connect('server')
+stdin, stdout, stderr = client.exec_command('cat /etc/os-release')
+```
+
+
 Have you tried [plumbum](https://plumbum.readthedocs.io)?
 
 ```python
@@ -448,6 +464,24 @@ ip('addr')
 ```
 
 And *so* much more...
+
+---
+
+Such as SSH:
+
+```python
+from plumbum import SshMachine
+
+server = SshMachine("server", user="admin")
+server["uname"](['-a'])
+```
+
+---
+
+Other SSH options
+
+- [AsyncSSH](https://asyncssh.readthedocs.io/)
+- [fabric](https://www.fabfile.org/)
 
 ---
 
@@ -714,6 +748,12 @@ with outpath.open("w", newline="", encoding="utf-8-sig") as outfile:
 
 ---
 
+Web requests
+
+---
+
+GET some data
+
 ```python
 from urllib.request import urlopen
 
@@ -723,6 +763,52 @@ url = "https://wttr.in/Columbus,OH?A1nF"
 with urlopen(url) as response:
   print(response.read().decode())
 ```
+
+Notes:
+- Be careful with user provided URLs!
+- At least check if url startswith('http')
+
+---
+
+POST some JSON
+
+---
+
+```python
+import json
+from urllib.request import Request, urlopen
+
+url = "https://jsonplaceholder.typicode.com/posts"
+data = {
+    "userid": "1001",
+    "title": "POSTing JSON for Fun and Profit",
+    "body": "JSON in the request body! Don't forget the content type.",
+}
+postdata = json.dumps(data).encode()
+headers = {"Content-Type": "application/json; charset=UTF-8"}
+httprequest = Request(url, data=postdata, headers=headers)
+
+with urlopen(httprequest) as response:
+    print(response.read().decode())
+```
+---
+
+Third-party libraries for Web
+
+- [`requests`](https://requests.readthedocs.io/)
+- [`httpx`](https://www.python-httpx.org/)
+- [`BeautifulSoup`](https://beautiful-soup-4.readthedocs.io/)
+- [`scrapy`](https://scrapy.org/)
+
+---
+
+Other data avenues to explore
+
+- built-in [`sqlite`](https://docs.python.org/3/library/sqlite.html)
+- [`xml.etree.ElementTree`](https://docs.python.org/3/library/xml.etree.elementtree.html) or [`lxml`](https://lxml.de/)
+- [`SQLAlchemy`](https://www.sqlalchemy.org/)
+- [`pandas`](https://pandas.pydata.org/)
+- [`numpy`](https://numpy.org/)
 
 ---
 
