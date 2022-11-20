@@ -1,17 +1,19 @@
 Python: the Multi-tool for System Management <!-- .element: class="r-fit-text" -->
 
-![Python Swiss-army knife](/assets/python-tool-o.svg) <!-- .element: class="r-stretch" style="height: 50vh" -->
+![Python Swiss-army knife](/assets/python-tool-o.svg) <!-- .element: class="hero" -->
 
 Notes:
 
 - Welcome
-- Introduce myself
+- I am Jonathan Bowman, software engineer from Central Pennsylvania
+- The presentation is going to move fast
+- Highly recommended to have the slides open, and a terminal or Python REPL
 
 ---
 
-Learn, customize, tear down, build
+Learn, customize, tear down, build <!-- .element: class="r-fit-text" -->
 
-[![Commodore 64](/assets/c64.gif)<!-- .element: style="height: 40vh" -->][c64] 
+[![Commodore 64](/assets/c64.gif) <!-- .element: class="hero" -->][c64] 
 
 [c64]: https://en.wikipedia.org/wiki/Commodore_64
 
@@ -19,7 +21,7 @@ Notes:
 
 - My digital history began with the Commodore 64
 - That  1 Mhz computer became a place to experiment, learn, customize, build, tear down, build again.
-- From Commodore BASIC 2.0...
+- I went from Commodore BASIC 2.0...
 
 ---
 
@@ -27,24 +29,30 @@ Notes:
 
 Notes:
 
-- To Python!
+To Python! (Decades later)
+
+I found Python:
+
 - Approachable
 - Powerful
 - Available
-- The REPL: a place to experiment, build, tear down, build again
-- No production filesystems were harmed in the making of this slide deck
+- The REPL is a bit like the Commodore: a place to experiment, build, tear down, build again
+
+No production filesystems were harmed in the making of this slide deck
 
 ---
 
 <!-- .slide: data-background-image="/assets/oldrag.jpg" -->
 
-![Tux the Linux penguin](/assets/tux.svg) <!-- .element: class="fragment fade-up" -->
+![Tux the Linux penguin](/assets/tux.svg) <!-- .element: class="hero fragment fade-up" -->
 
 Notes:
-- The path isn't so much a progression with Python as the goal, but a journey through open source and Linux, and encountering opportunities to help others
-- Story of encountering Linux and open source -- an open and inviting landscape
-- (With some recommended sites to see)
-- Quickly learned that in open source there were many opportunities to help others, offering freely available tools, and my assistance in configuring and using these tools. Such as Linux servers, web application frameworks
+- My path wasn't so much a progression with Python as the goal, but a journey through open source and Linux, and encountering opportunities to help others
+- I found Linux and open source to be an open and inviting landscape
+- (With some recommended sites to see) Tux
+- Quickly learned that in open source there were many opportunities to help others.
+- The landscape offering freely available tools.
+- I could offer my assistance in configuring and using these tools. Such as Linux servers, web application frameworks
 
 ---
 
@@ -63,6 +71,8 @@ Hindered by tasks that are
 - prone to human error
 
 Notes:
+
+I quickly found that helping others was often hindered...
 
 Thus the desire for automation! To improve:
 - Efficiency
@@ -83,6 +93,7 @@ Different tools for system automation
 
 Notes:
 
+- When considering system automation in the open source world, I immediately think of two classes of tools: bash and Ansible (and similar shells and tools)
 - Both Bash and Ansible can automate tedious tasks. Ansible is more readable and shareable. A Bash script has less guardrails, and is useful for more than just configuration management.
 - I think Python occupies a middle place between these two. It can be used to do anything Ansible does and it can do anything Bash does, but unlike either of these, it is a general-purpose programming language with a multi-faceted ecosystem.
 - None of these are the right tool for __every__ job. There are always going to be tasks that are best with one or the other, or something else entirely
@@ -90,15 +101,19 @@ Notes:
 ---
 
 Use Python when:
+
 - Bash scripts are too large, complicated
-- Complex string, array, or data processing is needed
+- There are Complex string, array, or data processing needed
 - the target machine lacks the required commands
 - Ansible is too heavy, slow, simple, or unavailable
 - cross-platform is desirable
+- you already know or want to learn Python
 
 [An informative debate about the merits of Bash vs. Python on Stackoverflow](https://stackoverflow.com/questions/2424921/python-vs-bash-in-which-kind-of-tasks-each-one-outruns-the-other-performance-w)
 
 Notes:
+
+(Walk through points)
 
 Keep in mind: Python works well with Bash and with Ansible. This isn't an either/or choice
 
@@ -114,6 +129,10 @@ It isn't a competition; collect them all! <!-- .element class="fragment fade-in"
 
 Lorena Mesa, Engineer at GitHub, former chair of Python Software Foundation <!-- .element class="fragment fade-in" -->
 
+Notes:
+
+From Github's README project. Lorena in turn quotes Brett Cannon.
+
 ---
 
 "I came for the language, I stay for the community."
@@ -124,23 +143,31 @@ Brett Cannon, Dev lead on the Python extension for Visual Studio Code <!-- .elem
 
 "batteries included"
 
-![Battery](/assets/battery.svg)
+![Battery](/assets/battery.svg) <!-- .element: class="hero" -->
+
+Notes:
+
+The standard library is huge. Lots of built-in functionality.
 
 ---
 
 Getting started with Python
 
-Lots of good documentation. Here are a few...
+Lots of good documentation. Here are a few options...
+
+Notes:
+
+Move quickly through the following slides.
 
 ---
 
-[![Automate the Boring Stuff](/assets/AutomatetheBoringStuff_cover.png)][boring]
+[![Automate the Boring Stuff](/assets/AutomatetheBoringStuff_cover.png) <!-- .element: class="hero" -->][boring]
 
 [boring]: https://automatetheboringstuff.com/
 
 ---
 
-[![Django Girls](/assets/djangogirls.png)][djangogirls]
+[![Django Girls](/assets/djangogirls.png) <!-- .element: class="hero" -->][djangogirls]
 
 [djangogirls]: https://tutorial.djangogirls.org/en/
 
@@ -160,7 +187,7 @@ List
 
 ---
 
-![Python help command](/assets/pyhelp1.gif)
+![Python help command](/assets/pyhelp1.gif) <!-- .element: class="hero" -->
 
 ---
 
@@ -187,9 +214,19 @@ Installing Python
 
 [downloads]: https://www.python.org/downloads/
 
+---
+
+Making `python` launch `python3`?
+
+- python-is-python3 (Ubuntu/Debian)
+- pythonispython3 (Alpine)
+- python-unversioned-command (Fedora)
+- `alias python=python3`
+
 Notes:
-- Linux package repos typically label python as python3, and python is launched as `python3` although most distros have ways of making `python` launch python3, such as python-is-python3 (Ubuntu), pythonispython3 (Alpine), python-unversioned-command (Fedora)
-- Other Operating Systems you may have heard of: scoop/chocolatey/winget/Store for Windows, homebrew for MacOS
+
+- Linux package repos typically label python as python3, and python is launched as `python3` although most distros have ways of making `python` launch python3, such as python-is-python3 (Ubuntu), pythonispython3 (Alpine), python-unversioned-command (Fedora) or shell config (.bashrc)
+- Surely this need will go away the further we are from Python 2
 
 ---
 
@@ -203,6 +240,8 @@ Python REPL on the web:
 - [c9.io](https://aws.amazon.com/cloud9/)
 
 Notes:
+
+- walk through points
 - No particular order
 
 ---
@@ -226,6 +265,12 @@ Virtual environments
 > . .venv/bin/activate
 ```
 
+Notes:
+
+- if you want to play around with installing python packages, a virtual environment is recommended
+- easy to just delete the virtual env directory afterward and start fresh
+- Docker also works fine for this
+
 ---
 
 Python editors
@@ -234,6 +279,10 @@ Python editors
 - [PyCharm](https://www.jetbrains.com/pycharm/)
 - Vim/Neovim, Emacs, Sublime Text, Helix, Zed...
 - For beginners: [Thonny](https://thonny.org/), [Mu](https://codewith.mu/)
+
+---
+
+Lightning intro to writing Python
 
 ---
 
@@ -363,9 +412,13 @@ Data wrangling in the standard library
 
 - [`csv`](https://docs.python.org/3/library/csv.html)
 - [`json`](https://docs.python.org/3/library/json.html)
-- [`xml.etree.ElementTree`](https://docs.python.org/3/library/xml.etree.elementtree.html)
+- [`xml.etree.ElementTree`](https://docs.python.org/3/library/xml.etree.elementtree.html) (consider [defusedxml](https://github.com/tiran/defusedxml))
 - [`sqlite`](https://docs.python.org/3/library/sqlite.html)
 - [`urllib.request`](https://docs.python.org/3/library/urllib.request.html) for HTTP calls
+
+Notes:
+
+- mention XML bombs
 
 ---
 
@@ -390,7 +443,7 @@ if result.returncode == 0 and result.stdout:
 
 ---
 
-The same, but with shell mode
+The same, but with shell mode (be careful)
 
 ```python
 import subprocess
@@ -411,9 +464,8 @@ A shortcut with `subprocess.check_output`
 ```python
 import subprocess
 
-output = subprocess.check_output("ip addr",
-                                  shell=True,
-                                  text=True)
+output = subprocess.check_output("ip", "addr"],
+                                 text=True)
 
 print(output)
 
@@ -426,16 +478,19 @@ A shortcut with `subprocess.check_call` if output capture is not needed
 ```python
 import subprocess
 
-subprocess.check_call("ip addr", shell=True)
+subprocess.check_call(["ip","addr"])
 ```
 
 ---
 
-Summary:
 - `subprocess.run` for anything and everything
 - `subprocess.check_output` for convenience, capturing output
 - `subprocess.check_call` if execution is all that is needed
-- `shell=True` parameter will pass the whole command as string to `sh`, and expand variables; otherwise pass the command as a `["list", "of", "command", "and", "parameters"]`
+- `shell=True` parameter will pass the whole command as string to `sh`, and expand variables (security alert); otherwise pass the command as a `["list", "of", "command", "and", "parameters"]`
+
+Notes:
+
+- summary slide
 
 ---
 
@@ -450,10 +505,18 @@ import paramiko
 
 client = paramiko.client.SSHClient()
 client.load_system_host_keys()
-client.connect('server')
-stdin, stdout, stderr = client.exec_command('cat /etc/os-release')
+client.connect("server", username="user")
+
+stdin, stdout, stderr = client.exec_command('ls /')
+root_directories = stdout.read()
+
+sftp = client.open_sftp()
+with sftp.file("/etc/os-release") as f:
+  for line in f:
+    print(line)
 ```
 
+---
 
 Have you tried [plumbum](https://plumbum.readthedocs.io)?
 
@@ -482,6 +545,12 @@ Other SSH options
 
 - [AsyncSSH](https://asyncssh.readthedocs.io/)
 - [fabric](https://www.fabfile.org/)
+- `ssh server python3 < script.py`
+
+Notes:
+
+- AsyncSSH is quite versatile and modern, but requires a willingness to use async/await
+- If python is on the target machine, then run python script over ssh
 
 ---
 
@@ -525,6 +594,26 @@ with filepath.open() as f:
     if line.startswith("PRETTY_NAME"):
       print(line.strip())
 ```
+
+---
+
+```python
+import pathlib
+import shlex
+
+os_release_file = pathlib.Path("/etc/os-release")
+os_release = os_release_file.read_text()
+lexer = shlex.shlex(os_release, posix=True)
+lexer.whitespace_split = True
+os_info = dict(i.split('=') for i in lexer if "=" in i)
+print(os_info["PRETTY_NAME"])
+```
+
+Notes:
+
+- Just an example of combining file operations with the shlex module
+- shlex parses shell-like syntax safely
+- such as a file that might be sourced by Bash, like /etc/os-release
 
 ---
 
@@ -791,6 +880,7 @@ httprequest = Request(url, data=postdata, headers=headers)
 with urlopen(httprequest) as response:
     print(response.read().decode())
 ```
+
 ---
 
 Third-party libraries for Web
@@ -812,19 +902,37 @@ Other data avenues to explore
 
 ---
 
-```python
-import pathlib
-import shlex
+For network engineers
 
-os_release_file = pathlib.Path("/etc/os-release")
-os_release = os_release_file.read_text()
-lexer = shlex.shlex(os_release, posix=True)
-lexer.whitespace_split = True
-os_info = dict(i.split('=') for i in lexer if "=" in i)
-print(os_info["PRETTY_NAME"])
-```
+- [Netmiko](https://pynet.twb-tech.com/blog/automation/netmiko.html): switch management
+- [Napalm](https://napalm.readthedocs.io/): network automation
+- [Nornir](https://nornir.readthedocs.io/): automate everything 
+- [Free Python Network Automation Course](https://pynet.twb-tech.com/) from Twin Bridges Technology
 
 ---
 
+For virtualization
+
+- [proxmoxer](https://proxmoxer.github.io/docs/)
+- [libvirt]
+- [AWS SDK for Python](https://aws.amazon.com/sdk-for-python/)
+- [Azure SDKs for Python](https://azure.github.io/azure-sdk-for-python/index.html)
+- [Google Cloud Client Libraries](https://cloud.google.com/python/docs/reference/)
+- [vSphere Automation SDK](https://github.com/vmware/vsphere-automation-sdk-python)
+- [VMware ESXi/vSphere API Python Bindings](https://github.com/vmware/pyvmomi)
+- For Hyper-V: [pywinrm](https://github.com/diyan/pywinrm) WinRM client
+- For Hyper-V: [pypsrp](https://github.com/jborean93/pypsrp) PowerShell Remoting
+
 [libvirt]: https://www.libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/
-[shlex]: https://docs.python.org/3/library/shlex.html
+
+---
+
+For container management
+
+- [docker](https://docker-py.readthedocs.io/)
+- [podman](https://github.com/containers/podman-py) (if using socket)
+- [kubernetes](https://github.com/kubernetes-client/python)
+
+---
+
+Thank you <!-- .element: class="r-fit-text" -->
