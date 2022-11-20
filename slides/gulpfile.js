@@ -274,6 +274,7 @@ gulp.task('package', gulp.series(() =>
     gulp.src(
         [
             './index.html',
+            './assets/**',
             './dist/**',
             './lib/**',
             './images/**',
@@ -283,6 +284,24 @@ gulp.task('package', gulp.series(() =>
         { base: './' }
     )
     .pipe(zip('reveal-js-presentation.zip')).pipe(gulp.dest('./'))
+
+))
+
+gulp.task('deploy', gulp.series(() =>
+
+    gulp.src(
+        [
+            './index.html',
+            './assets/**',
+            './dist/**',
+            './lib/**',
+            './images/**',
+            './plugin/**',
+            './**.md'
+        ],
+        { base: './' }
+    )
+    .pipe(gulp.dest('./_site'))
 
 ))
 
