@@ -29,7 +29,7 @@ Two tools/classes of tools for system automation
 - Bash
 - Ansible
 
-There are certainly more, but these are two common ones. Ansible and its similar counterparts, such as Chef, Puppet, and Saltstack, are for configuration management of a variety of systems, such as Linux servers. These tools use a domain-specific language that is easy to read, alter, and commit to version control. Bash scripts offer far more flexibility, but require a lot of sometimes hard-to-acquire knowledge about not only Bash, but the tools you will need to use along with Bash, such as grep, cut, tail, head, cat, sed, maybe even awk.
+There are certainly more, but these are two common ones. Ansible and its similar counterparts, such as Chef, Puppet, and Salt, are for configuration management of a variety of systems, such as Linux servers. These tools use a domain-specific language that is easy to read, alter, and commit to version control. Bash scripts offer far more flexibility, but require a lot of sometimes hard-to-acquire knowledge about not only Bash, but the tools you will need to use along with Bash, such as grep, cut, tail, head, cat, sed, maybe even awk.
 
 Both can automate tedious tasks. Ansible is by far more readable and shareable. A Bash script has less guardrails, and is useful for more than just configuration management.
 
@@ -85,11 +85,6 @@ Awesome python list?
 - dict
 - loops
 - conditions
-
-## virtualenv
-
-- `python -m venv .venv`
-- `. .venv/bin/activate`
 
 ## Command execution
 

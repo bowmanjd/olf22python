@@ -13,7 +13,7 @@
 		"build": "gulp build",
 		"package": "gulp package",
 		"deploy": "gulp build deploy",
-		"pdf": "decktape reveal --pdf-author 'Jonathan Bowman' --pdf-title 'Python: the Multi-tool for System Management' --pdf-subject 'Linux Python' -p 100 --size='2048x1536' http://localhost:8000 output.pdf assets/Python_the_Multitool_for_System_Management.pdf"
+		"pdf": "decktape reveal --pdf-author 'Jonathan Bowman' --pdf-title 'Python: the Multi-tool for System Management' --pdf-subject 'Linux Python' -p 100 --size='2048x1536' http://localhost:8000 assets/Python_the_Multitool_for_System_Management.pdf"
 	},
 	"author": {
 		"name": "Hakim El Hattab",
