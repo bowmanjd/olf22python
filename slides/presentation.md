@@ -201,6 +201,10 @@ Installing Python
 
 <!-- .slide: data-background-image="https://imgs.xkcd.com/comics/python_environment.png" data-background-size="contain"  -->
 
+Notes:
+
+- Python installation and management can be confusing, but it doesn't need to be
+
 ---
 
 - [python.org/downloads/][downloads]
@@ -213,6 +217,12 @@ Installing Python
 - Windows: see [downloads] or Store or scoop/chocolatey/winget
 
 [downloads]: https://www.python.org/downloads/
+
+Notes:
+
+- If unsure, just download the distro for your machine
+- If on Linux, there is likely a python3 package in your repository
+- scoop.sh: a gentle on-ramp to open source software
 
 ---
 
@@ -280,9 +290,17 @@ Python editors
 - Vim/Neovim, Emacs, Sublime Text, Helix, Zed...
 - For beginners: [Thonny](https://thonny.org/), [Mu](https://codewith.mu/)
 
+Notes:
+
+- More than likely, the editor of your choice has good Python support; you may need to install a plugin/extension
+
 ---
 
 Lightning intro to writing Python
+
+[github.com/bowmanjd/olf22python](https://github.com/bowmanjd/olf22python)
+
+![Github repo QR code](/assets/github_qr.svg) <!-- .element: class="hero" -->
 
 ---
 
@@ -464,7 +482,7 @@ A shortcut with `subprocess.check_output`
 ```python
 import subprocess
 
-output = subprocess.check_output("ip", "addr"],
+output = subprocess.check_output(["ip", "addr"],
                                  text=True)
 
 print(output)
@@ -503,7 +521,7 @@ with [Paramiko](https://www.paramiko.org/)
 ```python
 import paramiko
 
-client = paramiko.client.SSHClient()
+client = paramiko.SSHClient()
 client.load_system_host_keys()
 client.connect("server", username="user")
 
@@ -778,8 +796,9 @@ Reading CSV
 
 ```text
 Name,Age
-Michael Palin, 79
+Michael Palin,79
 John Cleese,83
+OLF Conference,20
 ```
 
 ---
@@ -863,7 +882,7 @@ POST some JSON
 
 ---
 
-```python
+```python [1-15|10|12|15|1-15]
 import json
 from urllib.request import Request, urlopen
 
@@ -875,11 +894,17 @@ data = {
 }
 postdata = json.dumps(data).encode()
 headers = {"Content-Type": "application/json; charset=UTF-8"}
-httprequest = Request(url, data=postdata, headers=headers)
+httprequest = Request(url, method="POST", data=postdata, headers=headers)
 
 with urlopen(httprequest) as response:
     print(response.read().decode())
 ```
+
+Notes:
+
+- jsonplaceholder __simulates__ a post
+- when the Request object has data parameter specified, POST is set automatically
+- note that this uses binary data, so need to decode() (utf-8 is default)
 
 ---
 
@@ -895,7 +920,7 @@ Third-party libraries for Web
 Other data avenues to explore
 
 - built-in [`sqlite`](https://docs.python.org/3/library/sqlite.html)
-- [`xml.etree.ElementTree`](https://docs.python.org/3/library/xml.etree.elementtree.html) or [`lxml`](https://lxml.de/)
+- [`xml.etree.ElementTree`](https://docs.python.org/3/library/xml.etree.elementtree.html) or [defusedxml](https://github.com/tiran/defusedxml) or [`lxml`](https://lxml.de/)
 - [`SQLAlchemy`](https://www.sqlalchemy.org/)
 - [`pandas`](https://pandas.pydata.org/)
 - [`numpy`](https://numpy.org/)
@@ -908,6 +933,10 @@ For network engineers
 - [Napalm](https://napalm.readthedocs.io/): network automation
 - [Nornir](https://nornir.readthedocs.io/): automate everything 
 - [Free Python Network Automation Course](https://pynet.twb-tech.com/) from Twin Bridges Technology
+
+Notes:
+
+- nornir is for more than just network devices; works great for servers, for instance
 
 ---
 
@@ -925,6 +954,10 @@ For virtualization
 
 [libvirt]: https://www.libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/
 
+Notes:
+
+- For the most part, your cloud provider or hypervisor likely has a Python SDK!
+
 ---
 
 For container management
@@ -932,6 +965,10 @@ For container management
 - [docker](https://docker-py.readthedocs.io/)
 - [podman](https://github.com/containers/podman-py) (if using socket)
 - [kubernetes](https://github.com/kubernetes-client/python)
+
+Notes:
+
+- podman package is for using the API through the podman socket
 
 ---
 
