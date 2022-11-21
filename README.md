@@ -11,12 +11,12 @@ entire datacenter or just your personal laptop. We explore command
 execution, file system manipulation, data wrangling, and downloading
 data from web APIs.
 
-Please see the [examples/] directory for various code snippets
+Please see the [examples](examples/) directory for various code snippets
 shared in the presentation.
 
 The slides are live at [olf22.bowmanjd.com](https://olf22.bowmanjd.com).
 
 Copyright 2022 Jonathan Bowman. All written content and code contained in this repo may
-be freely shared in compliance with [the Apache License, Version 2.0][LICENSE],
+be freely shared in compliance with [the Apache License, Version 2.0](LICENSE),
 and is provided “AS IS” without warranties or conditions of any kind.
 
