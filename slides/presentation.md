@@ -1,6 +1,6 @@
 Python: the Multi-tool for System Management <!-- .element: class="r-fit-text" -->
 
-![Python Swiss-army knife](/assets/python-tool-o.svg) <!-- .element: class="hero" -->
+![Python Swiss-army knife](assets/python-tool-o.svg) <!-- .element: class="hero" -->
 
 Notes:
 
@@ -13,7 +13,7 @@ Notes:
 
 Learn, customize, tear down, build <!-- .element: class="r-fit-text" -->
 
-[![Commodore 64](/assets/c64.gif) <!-- .element: class="hero" -->][c64] 
+[![Commodore 64](assets/c64.gif) <!-- .element: class="hero" -->][c64] 
 
 [c64]: https://en.wikipedia.org/wiki/Commodore_64
 
@@ -25,7 +25,7 @@ Notes:
 
 ---
 
-<!-- .slide: data-background-image="/assets/pyrepl.gif"  -->
+<!-- .slide: data-background-image="assets/pyrepl.gif"  -->
 
 Notes:
 
@@ -42,9 +42,9 @@ No production filesystems were harmed in the making of this slide deck
 
 ---
 
-<!-- .slide: data-background-image="/assets/oldrag.jpg" -->
+<!-- .slide: data-background-image="assets/oldrag.jpg" -->
 
-![Tux the Linux penguin](/assets/tux.svg) <!-- .element: class="hero fragment fade-up" -->
+![Tux the Linux penguin](assets/tux.svg) <!-- .element: class="hero fragment fade-up" -->
 
 Notes:
 - My path wasn't so much a progression with Python as the goal, but a journey through open source and Linux, and encountering opportunities to help others
@@ -56,7 +56,7 @@ Notes:
 
 ---
 
-<!-- .slide: data-background-image="/assets/holding-hands.svg" data-background-size="85%" -->
+<!-- .slide: data-background-image="assets/holding-hands.svg" data-background-size="85%" -->
 
 Notes:
 - I have a hunch that I am not the only one here with the underlying motivation to share and to help
@@ -143,7 +143,7 @@ Brett Cannon, Dev lead on the Python extension for Visual Studio Code <!-- .elem
 
 "batteries included"
 
-![Battery](/assets/battery.svg) <!-- .element: class="hero" -->
+![Battery](assets/battery.svg) <!-- .element: class="hero" -->
 
 Notes:
 
@@ -161,25 +161,25 @@ Move quickly through the following slides.
 
 ---
 
-[![Automate the Boring Stuff](/assets/AutomatetheBoringStuff_cover.png) <!-- .element: class="hero" -->][boring]
+[![Automate the Boring Stuff](assets/AutomatetheBoringStuff_cover.png) <!-- .element: class="hero" -->][boring]
 
 [boring]: https://automatetheboringstuff.com/
 
 ---
 
-[![Django Girls](/assets/djangogirls.png) <!-- .element: class="hero" -->][djangogirls]
+[![Django Girls](assets/djangogirls.png) <!-- .element: class="hero" -->][djangogirls]
 
 [djangogirls]: https://tutorial.djangogirls.org/en/
 
 ---
 
-[![Python](/assets/python-logo.svg)][pythondocs]
+[![Python](assets/python-logo.svg)][pythondocs]
 
 [pythondocs]: https://docs.python.org/3/
 
 ---
 
-[![Awesome Python cap](/assets/cap.svg) <!-- .element style="height: 10vh" -->][awesomepython] <br>
+[![Awesome Python cap](assets/cap.svg) <!-- .element style="height: 10vh" -->][awesomepython] <br>
 [Awesome Python][awesomepython]</br>
 List
 
@@ -187,11 +187,11 @@ List
 
 ---
 
-![Python help command](/assets/pyhelp1.gif) <!-- .element: class="hero" -->
+![Python help command](assets/pyhelp1.gif) <!-- .element: class="hero" -->
 
 ---
 
-<!-- .slide: data-background-image="/assets/pyhelp.gif"  -->
+<!-- .slide: data-background-image="assets/pyhelp.gif"  -->
 
 ---
 
@@ -300,7 +300,7 @@ Lightning intro to writing Python
 
 [github.com/bowmanjd/olf22python](https://github.com/bowmanjd/olf22python)
 
-![Github repo QR code](/assets/github_qr.svg) <!-- .element: class="hero" -->
+![Github repo QR code](assets/github_qr.svg) <!-- .element: class="hero" -->
 
 ---
 

@@ -1,12 +1,9 @@
-# Dependency directories
+/_site/**
+!/_site/slides/.gitkeep
 node_modules/
-
-# Optional npm cache directory
+dist/
 .npm
-
-# Optional eslint cache
 .eslintcache
-
 __pycache__/
 *.py[cod]
 .venv/
