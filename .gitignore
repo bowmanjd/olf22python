@@ -1,5 +1,5 @@
-/_site/**
-!/_site/slides/.gitkeep
+_site/**
+!_site/.gitkeep
 node_modules/
 dist/
 .npm
