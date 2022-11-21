@@ -287,7 +287,7 @@ gulp.task('package', gulp.series(() =>
 
 ))
 
-gulp.task('deploy', gulp.series(() => {
+gulp.task('slides', gulp.series(() => 
 
     gulp.src(
         [
@@ -302,12 +302,16 @@ gulp.task('deploy', gulp.series(() => {
         { base: './' }
     )
     .pipe(gulp.dest('../_site/slides'))
+))
+
+gulp.task('static', gulp.series(() => 
 
     gulp.src('../src/**')
     .pipe(gulp.dest('../_site/'))
-  }
 
 ))
+
+gulp.task('deploy', gulp.series('build', gulp.parallel('slides', 'static', 'package')))
 
 gulp.task('reload', () => gulp.src(['*.html', '*.md'])
     .pipe(connect.reload()));
