@@ -306,7 +306,7 @@ gulp.task('slides', gulp.series(() =>
 
 gulp.task('static', gulp.series(() => 
 
-    gulp.src('../src/**')
+    gulp.src('./static/**')
     .pipe(gulp.dest('./_site/'))
 
 ))
