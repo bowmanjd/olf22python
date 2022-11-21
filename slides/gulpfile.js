@@ -283,7 +283,7 @@ gulp.task('package', gulp.series(() =>
         ],
         { base: './' }
     )
-    .pipe(zip('OLF22-python-slides-Jonathan-Bowman.zip')).pipe(gulp.dest('../_site'))
+    .pipe(zip('OLF22-python-slides-Jonathan-Bowman.zip')).pipe(gulp.dest('./_site'))
 
 ))
 
@@ -301,13 +301,13 @@ gulp.task('slides', gulp.series(() =>
         ],
         { base: './' }
     )
-    .pipe(gulp.dest('../_site/slides'))
+    .pipe(gulp.dest('./_site/slides'))
 ))
 
 gulp.task('static', gulp.series(() => 
 
     gulp.src('../src/**')
-    .pipe(gulp.dest('../_site/'))
+    .pipe(gulp.dest('./_site/'))
 
 ))
 
