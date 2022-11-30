@@ -320,6 +320,10 @@ def greet(greeting):
 greet("Hello")
 ```
 
+Notes:
+
+`def` defines a function. This function is named `greet` and takes one argument that is assigned to the variable `greeting`. `return` specifies the return value of the function. Also note one way to do string concatenation, with the plus operator.
+
 ---
 
 Default arguments
@@ -332,11 +336,15 @@ def greet(greeting="Hello"):
 greet()
 ```
 
+Notes:
+
+Default arguments can be specified. Here we make the argument `greeting` have a default string of "Hello"
+
 ---
 
 Named arguments and f-strings
 
-```python [1-7|2|6-7|1-7]
+```python [1-7|6-7|2|1-7]
 def greet(greeting="Hello", audience="World"):
     return f"{greeting}, {audience}!"
 
@@ -345,6 +353,11 @@ greet()
 greet("Salutations", "Galaxy")
 greet(audience="Galaxy")
 ```
+
+Notes:
+
+- When calling a function, you can use positional and/or named arguments
+- Also note the cooler way to use variables in strings: the f-string
 
 ---
 
@@ -362,6 +375,10 @@ a_lonely_number = a_list[4]
 a_boolean = True
 ```
 
+Notes:
+
+- step through types
+
 ---
 
 The dict
@@ -373,6 +390,12 @@ a_dict = {"a_key": "a_value",
 
 archimedes_constant = a_dict["pi"]
 ```
+
+Notes:
+
+The dict. A hash type. Or a mapping. Or an associative array. Named values... 
+
+Get a value by name.
 
 ---
 
@@ -394,6 +417,10 @@ def compare(a, b):
         print("also less than or equal")
 ```
 
+Notes:
+
+Various comparison operators, that work on a variety of types, not just numbers.
+
 ---
 
 Loops
@@ -414,6 +441,10 @@ for _ in range(10):
 	print("Doing this thing 10 times.")
 ```
 
+Notes:
+
+Loops over am iterable (collection or range). (Review examples)
+
 ---
 
 Shell scripting in the standard library
@@ -428,6 +459,10 @@ Shell scripting in the standard library
 - [`os`](https://docs.python.org/3/library/os.html) 
 - [`sys`](https://docs.python.org/3/library/sys.html)
 
+Notes:
+
+Summarizing shell scripting libraries included in Python. We will go into more detail on some, but not all, of these.
+
 ---
 
 Data wrangling in the standard library
@@ -440,6 +475,7 @@ Data wrangling in the standard library
 
 Notes:
 
+- Some data handling libraries included in Python
 - mention XML bombs
 
 ---
@@ -447,6 +483,10 @@ Notes:
 The heart of shell scripting in Python:
 
 command execution with `subprocess`
+
+Notes:
+
+Let's talk about subprocess
 
 ---
 
@@ -462,6 +502,10 @@ result = subprocess.run(["ip", "addr"],
 if result.returncode == 0 and result.stdout:
 	print(result.stdout)
 ```
+
+Notes:
+
+subprocess.run can be used to do anything. Many options. Here it captures text output, tests for success. Note the list of arguments, the recommended way of passing commands. The first one, `ip` in this case, is the command itself. Subsequent items are the arguments passed to that command.
 
 ---
 
@@ -479,6 +523,10 @@ if result.returncode == 0 and result.stdout:
   print(result.stdout)
 ```
 
+Notes:
+
+Can run a shell command verbatim, including variable and tilde expansion. But beware of untrusted user inputs (`; rm -rf /`)
+
 ---
 
 A shortcut with `subprocess.check_output`
@@ -492,6 +540,9 @@ output = subprocess.check_output(["ip", "addr"],
 print(output)
 
 ```
+Notes:
+
+check_output shortcut (don't have to specify capture, nor pull stdout)
 
 ---
 
