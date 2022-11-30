@@ -4,10 +4,7 @@ Python: the Multi-tool for System Management <!-- .element: class="r-fit-text" -
 
 Notes:
 
-- Welcome
-- I am Jonathan Bowman, software engineer from Central Pennsylvania
-- The presentation is going to move fast
-- Highly recommended to have the slides open, and a terminal or Python REPL
+Welcome. I am Jonathan Bowman. I am a data engineer by day, a hobbyist developer all the time, and I have some experience in IT, in web development, teaching, and consulting.
 
 ---
 
@@ -19,9 +16,7 @@ Learn, customize, tear down, build <!-- .element: class="r-fit-text" -->
 
 Notes:
 
-- My digital history began with the Commodore 64
-- That  1 Mhz computer became a place to experiment, learn, customize, build, tear down, build again.
-- I went from Commodore BASIC 2.0...
+My computer history started in 1982 when my family got a Commodore 64 for Christmas. My parents only bought us two educational games, so we kids were left with blinking cursor and the BASIC programming language. Which was perfect! That computer became a place to experiment, learn, customize, build, tear down, build again. It was an entire world to constantly explore.
 
 ---
 
@@ -29,16 +24,9 @@ Notes:
 
 Notes:
 
-To Python! (Decades later)
+Decades later I found the Python REPL (Read Evaluate Print Loop or just the prompt) to be the same: approachable, powerful, available. A place to experiment, tear down, build again. (No production filesystems were harmed in the making of this presentation)
 
-I found Python:
-
-- Approachable
-- Powerful
-- Available
-- The REPL is a bit like the Commodore: a place to experiment, build, tear down, build again
-
-No production filesystems were harmed in the making of this slide deck
+I did not go straight from the Commodore to Python. The path to get there involved the open source landscape.
 
 ---
 
@@ -47,20 +35,16 @@ No production filesystems were harmed in the making of this slide deck
 ![Tux the Linux penguin](assets/tux.svg) <!-- .element: class="hero fragment fade-up" -->
 
 Notes:
-- My path wasn't so much a progression with Python as the goal, but a journey through open source and Linux, and encountering opportunities to help others
-- I found Linux and open source to be an open and inviting landscape
-- (With some recommended sites to see) Tux
-- Quickly learned that in open source there were many opportunities to help others.
-- The landscape offering freely available tools.
-- I could offer my assistance in configuring and using these tools. Such as Linux servers, web application frameworks
+
+From the Commodore in the 80s, fast forward to 1999, finishing my Bachelor's degree so I could be a high school English teacher, and I heard about Linux. Discovering Linux and open source was like cresting a hill and seeing this infinite landscape stretched out (with key features highlighted). Information was freely available, and the tools were attainable.
 
 ---
 
 <!-- .slide: data-background-image="assets/holding-hands.svg" data-background-size="85%" -->
 
 Notes:
-- I have a hunch that I am not the only one here with the underlying motivation to share and to help
-- But this noble adventure is not without its difficulties, right?
+
+I became a middle and high school teacher, bringing with me that re-kindled interest in building digital things. Ever since then I have continued to develop and build on my own, building and tearing down my machines and homelab. But I quickly found that this vast open source landscape provided plenty of natural resources for _helping others_. I evolved into being an IT technician at the school where I worked. Thrived on responding to others' needs and questions, pointing them to freely available tools. Configuring servers, desktops, web pages to support the adventures that my co-workers and students were on.
 
 ---
 
@@ -72,16 +56,16 @@ Hindered by tasks that are
 
 Notes:
 
-I quickly found that helping others was often hindered...
+This helping others is often hindered by tasks that are
 
-Thus the desire for automation! To improve:
-- Efficiency
-- Repeatability
-- Reliability
+- taking too much time
+- hard to remember
+- prone to human error
 
-All of these are quite desirable with Linux system administration, configuration, whether you are working with an Ubuntu laptop, an Open-WRT router, a datacenter with hundreds of RHEL VMs, or your Archlinux-based homelab.
 
-(Automation is also helpful and feasible on the BSDs, Mac, and, yes, even Windows.)
+Thus the desire for automation! To improve efficiency, repeatability, and reliability.
+
+All of these are quite desirable with Linux system administration, configuration, whether you are working with an Ubuntu laptop, an Open-WRT router, a datacenter with hundreds of RHEL VMs, or your Archlinux-based homelab. And, yes, even other platforms.
 
 ---
 
@@ -93,10 +77,13 @@ Different tools for system automation
 
 Notes:
 
-- When considering system automation in the open source world, I immediately think of two classes of tools: bash and Ansible (and similar shells and tools)
-- Both Bash and Ansible can automate tedious tasks. Ansible is more readable and shareable. A Bash script has less guardrails, and is useful for more than just configuration management.
-- I think Python occupies a middle place between these two. It can be used to do anything Ansible does and it can do anything Bash does, but unlike either of these, it is a general-purpose programming language with a multi-faceted ecosystem.
-- None of these are the right tool for __every__ job. There are always going to be tasks that are best with one or the other, or something else entirely
+When considering system automation in the open source world, I immediately think of two classes of tools: represented well by bash and Ansible (and similar shells and tools)
+
+Both Bash and Ansible can automate tedious tasks. Ansible is more readable and shareable. A Bash script has less guardrails, and is useful for more than just configuration management.
+
+I think Python occupies a middle place between these two. It can be used to do anything Ansible does and it can do anything Bash does, but unlike either of these, it is a general-purpose programming language with a multi-faceted ecosystem.
+
+__None of these are the right tool for _every_ job. There are always going to be tasks that are best with one or the other, or something else entirely.__
 
 ---
 
@@ -115,13 +102,21 @@ Notes:
 
 (Walk through points)
 
-Keep in mind: Python works well with Bash and with Ansible. This isn't an either/or choice
+Keep in mind: Python works well with Bash and with Ansible. This isn't an either/or choice. Also note an interesting discussion on Stackoverflow.
 
 ---
 
 Why Python (and not other general-purpose languages)?
 
 It isn't a competition; collect them all! <!-- .element class="fragment fade-in" -->
+
+Notes:
+
+Many scripting languages exist that fill this space: Perl is the old standby, Ruby and even Javascript can be used. Lua is probably worth exploring!
+
+If you find something that works as well as Python, excellent!
+
+If you are weighing options, a couple quotes to consider:
 
 ---
 
@@ -157,7 +152,7 @@ Lots of good documentation. Here are a few options...
 
 Notes:
 
-Move quickly through the following slides.
+Some suggestions for learning Python (all free):
 
 ---
 
@@ -235,8 +230,7 @@ Making `python` launch `python3`?
 
 Notes:
 
-- Linux package repos typically label python as python3, and python is launched as `python3` although most distros have ways of making `python` launch python3, such as python-is-python3 (Ubuntu), pythonispython3 (Alpine), python-unversioned-command (Fedora) or shell config (.bashrc)
-- Surely this need will go away the further we are from Python 2
+Linux package repos typically label python as python3, and python is launched as python3 although most distros have ways of making python launch python3, such as python-is-python3 (Ubuntu), pythonispython3 (Alpine), python-unversioned-command (Fedora) or shell config (.bashrc). Surely this need will go away the further we are from Python 2
 
 ---
 
@@ -251,8 +245,7 @@ Python REPL on the web:
 
 Notes:
 
-- walk through points
-- No particular order
+There are options for Python on the web. In no particular order
 
 ---
 
@@ -264,6 +257,10 @@ Installing packages
 ```
 
 Browse at [pypi.org](https://pypi.org)
+
+Notes:
+
+How to install packages: with pip. Singly or several at once..
 
 ---
 
@@ -277,9 +274,11 @@ Virtual environments
 
 Notes:
 
-- if you want to play around with installing python packages, a virtual environment is recommended
-- easy to just delete the virtual env directory afterward and start fresh
-- Docker also works fine for this
+If you want to play around with installing python packages, a virtual environment is recommended.
+
+Create a directory, then activate it. Easy to just delete the virtual env directory afterward and start fresh.
+
+Docker could be used in place of this.
 
 ---
 
@@ -293,6 +292,7 @@ Python editors
 Notes:
 
 - More than likely, the editor of your choice has good Python support; you may need to install a plugin/extension
+- If in doubt, use what you already are familiar with, or just use VSCode
 
 ---
 
@@ -301,6 +301,10 @@ Lightning intro to writing Python
 [github.com/bowmanjd/olf22python](https://github.com/bowmanjd/olf22python)
 
 ![Github repo QR code](assets/github_qr.svg) <!-- .element: class="hero" -->
+
+Notes:
+
+Lightning intro to Python: see examples in the repo.
 
 ---
 

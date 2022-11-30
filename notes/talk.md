@@ -49,7 +49,7 @@ __None of these are the right tool for _every_ job. There are always going to be
 
 Keep in mind: Python works well with Bash and with Ansible. This isn't an either/or choice. Also note an interesting discussion on Stackoverflow.
 
-Why Python?
+(Slide). Why Python?
 
 Many scripting languages exist that fill this space: Perl is the old standby, Ruby and even Javascript can be used. Lua is probably worth exploring!
 
