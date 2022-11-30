@@ -3,10 +3,9 @@
 import csv
 from pathlib import Path
 
-outpath = Path("output.csv")
+out = Path("output.csv")
 
-with outpath.open("w", newline="", encoding="utf-8-sig") as outfile:
-    writer = csv.writer(outfile)
-    new_row = {"First": "Jane", "Last": "Smith"}
+with out.open("w", newline="", encoding="utf-8-sig") as f:
+    writer = csv.writer(f)
     writer.writerow(["Name", "Age"])
     writer.writerow(["John Cleese", 83])

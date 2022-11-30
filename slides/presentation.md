@@ -103,11 +103,11 @@ Notes:
 Use Python when:
 
 - Bash scripts are too large, complicated
-- There are Complex string, array, or data processing needed
-- the target machine lacks the required commands
+- Processing complex string, array, or data
+- Target machine lacks required commands
 - Ansible is too heavy, slow, simple, or unavailable
-- cross-platform is desirable
-- you already know or want to learn Python
+- Cross-platform is desirable
+- Already know or want to learn Python
 
 [An informative debate about the merits of Bash vs. Python on Stackoverflow](https://stackoverflow.com/questions/2424921/python-vs-bash-in-which-kind-of-tasks-each-one-outruns-the-other-performance-w)
 
@@ -641,7 +641,7 @@ Writing text to a file
 from pathlib import Path
 
 filepath = Path("/etc/motd")
-weather = "There will be temperatures today with a chance of weather."
+weather = "There will be temps today with a chance of weather."
 filepath.write_text(weather)
 ```
 
@@ -845,13 +845,12 @@ Writing CSV
 import csv
 from pathlib import Path
 
-outpath = Path("output.csv")
+out = Path("output.csv")
 
-with outpath.open("w", newline="", encoding="utf-8-sig") as outfile:
-  writer = csv.writer(outfile)
-  new_row = {"First": "Jane", "Last": "Smith"}
-  writer.writerow(["Name","Age"])
-  writer.writerow(["John Cleese",83])
+with out.open("w", newline="", encoding="utf-8-sig") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Name", "Age"])
+    writer.writerow(["John Cleese", 83])
 ```
 
 ---
@@ -882,7 +881,7 @@ POST some JSON
 
 ---
 
-```python [1-15|10|12|15|1-15]
+```python [1-16|10|12-13|16|1-16]
 import json
 from urllib.request import Request, urlopen
 
@@ -890,11 +889,12 @@ url = "https://jsonplaceholder.typicode.com/posts"
 data = {
     "userid": "1001",
     "title": "POSTing JSON for Fun and Profit",
-    "body": "JSON in the request body! Don't forget the content type.",
+    "body": "JSON! Don't forget the content type.",
 }
 postdata = json.dumps(data).encode()
-headers = {"Content-Type": "application/json; charset=UTF-8"}
-httprequest = Request(url, method="POST", data=postdata, headers=headers)
+headers = {"Content-Type": "application/json"}
+httprequest = Request(url, method="POST",
+                      data=postdata, headers=headers)
 
 with urlopen(httprequest) as response:
     print(response.read().decode())
