@@ -589,6 +589,10 @@ with sftp.file("/etc/os-release") as f:
     print(line)
 ```
 
+Notes:
+
+Paramiko example. A little involved, but not too bad. However, doesn't read SSH config very easily.
+
 ---
 
 Have you tried [plumbum](https://plumbum.readthedocs.io)?
@@ -601,6 +605,10 @@ ip('addr')
 
 And *so* much more...
 
+Notes:
+
+Plumbum. This is a library I am getting to know. If you were serious about using Python for all your shell scripting needs, I think you want to get to know plumbum, too. Import executables from the PATH easily...
+
 ---
 
 Such as SSH:
@@ -612,6 +620,9 @@ server = SshMachine("server", user="admin")
 server["uname"](['-a'])
 ```
 
+Notes:
+Easy SSH. Just uses the OpenSSH binary under the hood, so everything just works.
+
 ---
 
 Other SSH options
@@ -622,8 +633,11 @@ Other SSH options
 
 Notes:
 
-- AsyncSSH is quite versatile and modern, but requires a willingness to use async/await
-- If python is on the target machine, then run python script over ssh
+Other SSH options. If you are familiar with async/await syntax with Python or other languages, consider AsyncSSH.
+
+Fabric is built on Paramiko with easier support for SSH config files.
+
+But just using SSH is also an option, especially if Python is on the target machine
 
 ---
 
@@ -668,6 +682,12 @@ with filepath.open() as f:
       print(line.strip())
 ```
 
+Notes:
+
+`with` creates a context in which you can do things with a temporarily opened entity, and trust that it will close when you are done.
+
+If you run this, it should output a line with your distro name on it.
+
 ---
 
 ```python
@@ -699,6 +719,10 @@ filepath = Path("/etc/motd")
 weather = "There will be temps today with a chance of weather."
 filepath.write_text(weather)
 ```
+
+Notes:
+
+Writing text with pathlib is as easy as reading it. Here we write a message of the day.
 
 ---
 
@@ -750,6 +774,12 @@ if __name__ == "__main__":
 > sudo ./motder.py "Good morning it is a lazy Friday!"
 ```
 
+Notes:
+
+In case it is too tedious to write "python3" first.
+
+So, we wrote a program that takes arbitrary text as an argument, then writes it to the message of the day. But what if there are multiple arguments, or none, or if the user wants help? Well, there are more flexible options.
+
 ---
 
 A more flexible way: `argparse`
@@ -770,9 +800,9 @@ if __name__ == "__main__":
 	motder(args.message)
 ```
 
-Note:
-- builtin help
-- Try executing without an argument, or with `motder.py -h`
+Notes:
+
+In the standard library, there is a nice argument parser called argparse. Try executing without an argument, or with motder.py -h (builtin help)
 
 ---
 
@@ -783,12 +813,20 @@ Some excellent third-party CLI libraries
 - [`fire`](https://google.github.io/python-fire/)
 - [`plumbum`](https://plumbum.readthedocs.io/en/latest/cli.html#command-line-interface-cli)
 
+Notes:
+
+While argparse is great, you may find some external libraries desirable for ease of use and even more features. And, yes, plumbum to the rescue again.
+
 ---
 
 Create truly glamorous TUIs
 
 - [`rich`](https://rich.readthedocs.io/)
 - [`textual`](https://textual.textualize.io/)
+
+Notes:
+
+For terminal output that is glamorous, you can try these libraries (rich has been around longer. textual the new hotness. Written by the same person)
 
 ---
 
@@ -808,9 +846,17 @@ subprocess.check_call(["sudo", "cp", temp_motd, motd])
 shutil.rmtree(tempdir, ignore_errors=True)
 ```
 
+Notes:
+
+Python also has ability to handle temporary files. This is quite useful when editing a file in place.
+
 ---
 
 Data
+
+Notes:
+
+There is a broad and deep Python ecosystem around data manipulation. Here are a few helpers that are builtin.
 
 ---
 
@@ -825,6 +871,8 @@ print(json_data)
 ```
 
 Notes:
+
+- The JSON module can turn many Python objects, lists, or strings into JSON.
 - line 3 is not JSON, even though it looks like it!
 - indent is entirely optional
 
@@ -841,6 +889,10 @@ filetext = filepath.read_text()
 dockerd_conf = json.loads(filetext)
 ```
 
+Notes:
+
+And can deserialize JSON as well, converting it to Python objects. Here we load the config for the docker service.
+
 ---
 
 Reading CSV
@@ -855,6 +907,10 @@ Michael Palin,79
 John Cleese,83
 OLF Conference,20
 ```
+
+Notes:
+
+This is what a simple CSV file looks like.
 
 ---
 
@@ -873,6 +929,10 @@ with inpath.open(newline="", encoding="utf-8") as f:
         print(f"{name} is {age} years old.")
 ```
 
+Notes:
+
+We can read that file row by row and then parse the fields in the row.
+
 ---
 
 ```python
@@ -890,7 +950,8 @@ with inpath.open(newline="", encoding="utf-8") as f:
 ```
 
 Notes:
-- using dict reader allows dynamically assigned columns
+
+There is also the ability to read each row as a dictionary, so you can always address the columns by the header (this assumes a header row, of course).
 
 ---
 
@@ -907,6 +968,10 @@ with out.open("w", newline="", encoding="utf-8-sig") as f:
     writer.writerow(["Name", "Age"])
     writer.writerow(["John Cleese", 83])
 ```
+
+Notes:
+
+Writing is similar to reading. Able to write line by line.
 
 ---
 
@@ -927,8 +992,8 @@ with urlopen(url) as response:
 ```
 
 Notes:
-- Be careful with user provided URLs!
-- At least check if url startswith('http')
+
+There are really good third party http client libraries out there, but the one that is included with Python can work well, too. Be careful with user provided URLs, though! At least check if url startswith('http'). Also note that the response is returned as bytes, which you may which to decode as a string.
 
 ---
 
@@ -958,8 +1023,6 @@ with urlopen(httprequest) as response:
 Notes:
 
 - jsonplaceholder __simulates__ a post
-- when the Request object has data parameter specified, POST is set automatically
-- note that this uses binary data, so need to decode() (utf-8 is default)
 
 ---
 
@@ -970,6 +1033,10 @@ Third-party libraries for Web
 - [`BeautifulSoup`](https://beautiful-soup-4.readthedocs.io/)
 - [`scrapy`](https://scrapy.org/)
 
+Notes:
+
+Some external libraries you may wish to explore. requests is exceedinly popular http client, httpx is my favorite, BeautifulSoup or scrapy are excellent for actually parsing HTML if web scraping is your thing.
+
 ---
 
 Other data avenues to explore
@@ -979,6 +1046,10 @@ Other data avenues to explore
 - [`SQLAlchemy`](https://www.sqlalchemy.org/)
 - [`pandas`](https://pandas.pydata.org/)
 - [`numpy`](https://numpy.org/)
+
+Notes:
+
+point by point
 
 ---
 
@@ -991,7 +1062,8 @@ For network engineers
 
 Notes:
 
-- nornir is for more than just network devices; works great for servers, for instance
+- Hold still while I throw a lot of links at you. Just in case something here is a path worth exploring for your needs.
+- Network engineers. Also note that nornir is more general purpose, similar to fabric, in that it is like Ansible, but you use the full strength of Python rather than a DSL.
 
 ---
 
@@ -1028,3 +1100,7 @@ Notes:
 ---
 
 Thank you <!-- .element: class="r-fit-text" -->
+
+Notes:
+
+Thank you. Questions? Opinions? Good arguments we can have with one another?
