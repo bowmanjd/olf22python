@@ -1,5 +1,8 @@
 # Python: the Multi-tool for System Management
 
+Please feel free to use the [Q&A Discussion](https://github.com/bowmanjd/olf22python/discussions/1)
+if you have questions and comments related to the presentation!
+
 This is the companion repo for one of the talks at the
 [OLF 2022 conference](https://olfconference.org).
 
